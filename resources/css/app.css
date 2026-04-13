@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../**/*.js';
+@source '../**/*.jsx';
+
+@theme {
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --color-brand-50: #f2f7ff;
+    --color-brand-100: #d9e8ff;
+    --color-brand-200: #b0d0ff;
+    --color-brand-300: #79adff;
+    --color-brand-400: #4184ff;
+    --color-brand-500: #1d63f2;
+    --color-brand-600: #164bcc;
+    --color-brand-700: #153ea3;
+    --color-brand-800: #183787;
+    --color-brand-900: #19306f;
+    --color-ink-950: #0c1222;
+    --color-ink-900: #131b30;
+    --color-ink-800: #1d2742;
+    --color-sand-50: #fbfaf7;
+    --color-sand-100: #f3efe5;
+    --color-teal-accent: #7ce0d3;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(124, 224, 211, 0.28), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(65, 132, 255, 0.2), transparent 25%),
+        linear-gradient(180deg, #fbfaf7 0%, #f4f8ff 52%, #ffffff 100%);
+    color: #131b30;
+    font-family: var(--font-sans);
+}
+
+body.dark {
+    background:
+        radial-gradient(circle at top left, rgba(124, 224, 211, 0.12), transparent 24%),
+        radial-gradient(circle at 85% 10%, rgba(65, 132, 255, 0.16), transparent 24%),
+        linear-gradient(180deg, #08101e 0%, #0d1527 52%, #111a2c 100%);
+    color: #eff4ff;
+}
+
+#app {
+    min-height: 100vh;
+}
+
+::selection {
+    background: rgba(29, 99, 242, 0.18);
+}
+
+@utility container-shell {
+    margin-inline: auto;
+    width: min(1120px, calc(100% - 1.5rem));
+}
+
+@utility section-card {
+    border: 1px solid color-mix(in srgb, #8ca0c7 22%, transparent);
+    background: color-mix(in srgb, white 80%, transparent);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 22px 80px rgba(18, 31, 58, 0.08);
+}
+
+body.dark .section-card {
+    border-color: rgba(150, 176, 224, 0.16);
+    background: rgba(11, 18, 35, 0.7);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+@utility text-gradient {
+    background-image: linear-gradient(135deg, #173db8 0%, #1d63f2 46%, #18a0ae 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@utility display-font {
+    font-family: var(--font-display);
+}
