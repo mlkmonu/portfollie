@@ -17,6 +17,8 @@ const stats = [
     { value: '100%', label: 'Responsive and mobile-first sections' },
 ];
 
+
+
 const skills = [
     { name: 'React', level: 90, detail: 'Component architecture, reusable UI sections, SPA interactions, modern state flows' },
     { name: 'JavaScript', level: 86, detail: 'Interactive experiences, DOM logic, accessible UI behavior, clean frontend structure' },
