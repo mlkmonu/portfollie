@@ -382,6 +382,65 @@ function Skills() {
     );
 }
 
+
+function Projects() {
+    return (
+        <Section id="projects" eyebrow="Projects" title="Showcase of Laravel applications, WordPress themes, and integrated solutions.">
+            <div className="grid gap-5 lg:grid-cols-2">
+                {projects.map((project, index) => (
+                    <motion.article
+                        key={project.title}
+                        initial={{ opacity: 0, y: 22 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: index * 0.06 }}
+                        className="section-card group rounded-[1.75rem] p-6"
+                    >
+                        <div className="flex items-start justify-between gap-4">
+                            <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+                                    Featured Project
+                                </p>
+                                <h3 className="display-font mt-3 text-2xl font-semibold text-slate-900 dark:text-white">
+                                    {project.title}
+                                </h3>
+                            </div>
+                            <div className="rounded-full border border-slate-300/80 px-3 py-1 text-xs font-medium text-slate-600 transition group-hover:border-brand-400 group-hover:text-brand-600 dark:border-slate-700 dark:text-slate-300 dark:group-hover:border-brand-400 dark:group-hover:text-brand-300">
+                                Case Study
+                            </div>
+                        </div>
+                        <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
+                        <div className="mt-5 flex flex-wrap gap-2">
+                            {project.stack.map((item) => (
+                                <span
+                                    key={item}
+                                    className="rounded-full border border-slate-300/80 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:text-slate-200"
+                                >
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
+                        <div className="mt-6 flex gap-3">
+                            <a
+                                href={project.live}
+                                className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-600 dark:bg-white dark:text-slate-950 dark:hover:bg-brand-200"
+                            >
+                                Live Demo
+                            </a>
+                            <a
+                                href={project.source}
+                                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-300"
+                            >
+                                GitHub
+                            </a>
+                        </div>
+                    </motion.article>
+                ))}
+            </div>
+        </Section>
+    );
+}
+
 const projects = [
     {
         title: 'Hospice Talk Website',
@@ -437,46 +496,6 @@ const projects = [
         source: '#',
     },
 ];
-
-function Experience() {
-    return (
-        <Section id="experience" eyebrow="Experience" title="One year of hands-on Laravel development and full-stack project experience.">
-            <div className="grid gap-5">
-                {experience.map((item, index) => (
-                    <motion.article
-                        key={item.role}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.45, delay: index * 0.08 }}
-                        className="section-card rounded-[1.75rem] p-6 sm:p-8"
-                    >
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                            <div>
-                                <p className="display-font text-2xl font-semibold text-slate-900 dark:text-white">{item.role}</p>
-                                <p className="mt-1 text-sm font-medium text-brand-600 dark:text-brand-300">{item.company}</p>
-                            </div>
-                            <div className="rounded-full border border-slate-300/80 px-4 py-2 text-sm font-medium text-slate-600 dark:border-slate-700 dark:text-slate-300">
-                                {item.period}
-                            </div>
-                        </div>
-                        <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300">{item.summary}</p>
-                        <div className="mt-6 grid gap-3 md:grid-cols-3">
-                            {item.points.map((point) => (
-                                <div
-                                    key={point}
-                                    className="rounded-[1.25rem] border border-slate-200/80 bg-white/75 p-4 text-sm leading-7 text-slate-600 dark:border-slate-800 dark:bg-slate-950/45 dark:text-slate-300"
-                                >
-                                    {point}
-                                </div>
-                            ))}
-                        </div>
-                    </motion.article>
-                ))}
-            </div>
-        </Section>
-    );
-}
 
 function Contact() {
     const [name, setName] = useState('');
