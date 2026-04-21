@@ -383,63 +383,63 @@ function Skills() {
 }
 
 
-function Projects() {
-    return (
-        <Section id="projects" eyebrow="Projects" title="Showcase of Laravel applications, WordPress themes, and integrated solutions.">
-            <div className="grid gap-5 lg:grid-cols-2">
-                {projects.map((project, index) => (
-                    <motion.article
-                        key={project.title}
-                        initial={{ opacity: 0, y: 22 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.5, delay: index * 0.06 }}
-                        className="section-card group rounded-[1.75rem] p-6"
-                    >
-                        <div className="flex items-start justify-between gap-4">
-                            <div>
-                                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
-                                    Featured Project
-                                </p>
-                                <h3 className="display-font mt-3 text-2xl font-semibold text-slate-900 dark:text-white">
-                                    {project.title}
-                                </h3>
-                            </div>
-                            <div className="rounded-full border border-slate-300/80 px-3 py-1 text-xs font-medium text-slate-600 transition group-hover:border-brand-400 group-hover:text-brand-600 dark:border-slate-700 dark:text-slate-300 dark:group-hover:border-brand-400 dark:group-hover:text-brand-300">
-                                Case Study
-                            </div>
-                        </div>
-                        <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
-                        <div className="mt-5 flex flex-wrap gap-2">
-                            {project.stack.map((item) => (
-                                <span
-                                    key={item}
-                                    className="rounded-full border border-slate-300/80 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:text-slate-200"
-                                >
-                                    {item}
-                                </span>
-                            ))}
-                        </div>
-                        <div className="mt-6 flex gap-3">
-                            <a
-                                href={project.live}
-                                className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-600 dark:bg-white dark:text-slate-950 dark:hover:bg-brand-200"
-                            >
-                                Live Demo
-                            </a>
-                            <a
-                                href={project.source}
-                                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-300"
-                            >
-                                GitHub
-                            </a>
-                        </div>
-                    </motion.article>
-                ))}
-            </div>
-        </Section>
-    );
-}
+// SIRF PROJECT SECTION UPDATE KIYA HAI - AAPKI FILE ME ISKO REPLACE KARO
+
+const projects = [
+    {
+        title: 'Startup Budget Estimator',
+        description:
+            'Built a professional web application using Bootstrap and JavaScript that calculates startup budgets dynamically. Integrated html2pdf.js for realistic downloadable PDF reports with charts, summaries, branding and modern design.',
+        stack: ['HTML', 'Bootstrap', 'JavaScript', 'html2pdf.js'],
+        live: '#',
+        source: '#',
+    },
+
+    {
+        title: 'Laravel Breeze Chat System',
+        description:
+            'Developed a real-time chat system using Laravel Breeze where all registered users are displayed in sidebar and messages load dynamically when selecting a user.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'AJAX'],
+        live: '#',
+        source: '#',
+    },
+
+    {
+        title: 'Portfolio Website',
+        description:
+            'Created a modern responsive developer portfolio using React.js, Framer Motion and custom UI design with animations, dark mode and smooth scrolling sections.',
+        stack: ['React.js', 'JavaScript', 'CSS', 'Framer Motion'],
+        live: '#',
+        source: '#',
+    },
+
+    {
+        title: 'E-Commerce Website',
+        description:
+            'Built an e-commerce web application using Laravel where users can browse products, add to cart, checkout and place orders with payment gateway integration.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'Razorpay'],
+        live: '#',
+        source: '#',
+    },
+
+    {
+        title: 'Admin Dashboard',
+        description:
+            'Created a Laravel admin dashboard with login system, user management, reports, charts and API integration using AJAX for dynamic updates.',
+        stack: ['Laravel', 'Sanctum', 'JavaScript', 'API'],
+        live: '#',
+        source: '#',
+    },
+
+    {
+        title: 'Business Management System',
+        description:
+            'Built a management system with roles, reports, invoices and CRUD functionality using Laravel, jQuery and MySQL.',
+        stack: ['Laravel', 'MySQL', 'jQuery', 'AJAX'],
+        live: '#',
+        source: '#',
+    },
+];
 
 function Experience() {
     return (
