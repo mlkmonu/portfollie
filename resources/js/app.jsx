@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AnimatePresence, motion } from 'framer-motion';
+import axios from 'axios';
 import '../css/app.css';
 
 const navigation = [
@@ -11,81 +12,108 @@ const navigation = [
     { label: 'Contact', href: '#contact' },
 ];
 
+
+
 const stats = [
-    { value: '1+', label: 'Years designing polished web interfaces' },
-    { value: '4', label: 'Showcase project concepts' },
-    { value: '100%', label: 'Responsive and mobile-first sections' },
+    { value: '1+', label: 'Years of Laravel de  velopment experience' },
+    { value: '10+', label: 'Projects completed with modern web technologies' },
+    { value: '100%', label: 'Responsive and secure web applications' },
 ];
+
 
 
 
 const skills = [
-    { name: 'React', level: 90, detail: 'Component architecture, reusable UI sections, SPA interactions, modern state flows' },
-    { name: 'JavaScript', level: 86, detail: 'Interactive experiences, DOM logic, accessible UI behavior, clean frontend structure' },
-    { name: 'Tailwind CSS', level: 88, detail: 'Responsive design systems, component styling, animations, dark mode support' },
+    { name: 'Laravel', level: 90, detail: 'MVC architecture, Eloquent ORM, Blade templating, API development, authentication' },
+    { name: 'PHP', level: 88, detail: 'Server-side scripting, object-oriented programming, database interactions' },
     { name: 'HTML5', level: 92, detail: 'Semantic layouts, SEO-friendly structure, accessible content hierarchy' },
-    { name: 'UI Motion', level: 78, detail: 'Framer Motion transitions, section reveals, polished page feel' },
-    { name: 'GitHub Deployment', level: 80, detail: 'Static build workflows, Vite production builds, GitHub-ready deployment setup' },
+    { name: 'CSS3', level: 85, detail: 'Responsive design, animations, modern styling techniques' },
+    { name: 'JavaScript', level: 86, detail: 'Interactive experiences, DOM manipulation, AJAX requests' },
+    { name: 'jQuery', level: 80, detail: 'DOM manipulation, event handling, AJAX calls' },
+    { name: 'WordPress', level: 78, detail: 'Custom themes, plugins development, Elementor integration' },
+    { name: 'Elementor', level: 75, detail: 'Page building, custom widgets, responsive design' },
+    { name: 'API Integration', level: 85, detail: 'Third-party APIs, payment gateways, RESTful services' },
+    { name: 'Payment Systems', level: 82, detail: 'Razorpay and Stripe integration, secure transactions' },
+    { name: 'Laravel Sanctum', level: 80, detail: 'API authentication, token management, SPA authentication' },
+    { name: 'Queues & Jobs', level: 78, detail: 'Background processing, job dispatching, queue management' },
 ];
+
 
 const projects = [
     {
-        title: 'InventoryFlow',
+        title: 'E-Commerce Platform',
         description:
-            'A clean inventory dashboard concept for small businesses with sharp cards, responsive layouts, and fast navigation patterns.',
-        stack: ['React', 'JavaScript', 'Tailwind', 'Vite'],
+            'A full-featured e-commerce website built with Laravel, featuring payment integration with Razorpay and Stripe, inventory management, and responsive design.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'Razorpay', 'Stripe'],
         live: '#',
         source: '#',
     },
+
     {
-        title: 'HireTrack',
+        title: 'WordPress Custom Theme',
         description:
-            'Recruitment portal interface with job posting flows, candidate cards, and recruiter-friendly screens built for everyday speed.',
-        stack: ['React', 'HTML', 'Tailwind', 'Motion'],
+            'Custom WordPress theme with Elementor integration, advanced custom fields, and optimized for performance and SEO.',
+        stack: ['WordPress', 'PHP', 'Elementor', 'HTML', 'CSS'],
         live: '#',
         source: '#',
     },
+
+
+
+            
+
+
     {
-        title: 'ClientPortal Pro',
+        title: 'API-Driven Dashboard',
         description:
-            'Service business portal UI for invoices, support tickets, and project updates with a polished customer-facing experience.',
-        stack: ['React', 'JavaScript', 'Tailwind', 'Responsive UI'],
+            'Laravel-based dashboard with third-party API integrations, real-time data processing using queues and jobs, and secure authentication with Sanctum.',
+        stack: ['Laravel', 'API', 'Sanctum', 'Queues', 'JavaScript'],
         live: '#',
         source: '#',
     },
+
     {
-        title: 'CourseNest',
+        title: 'Business Management System',
         description:
-            'Learning platform concept featuring course browsing, structured lessons, progress tracking, and reusable landing-page modules.',
-        stack: ['React', 'Vite', 'Tailwind', 'UI Design'],
+            'Comprehensive business management application with user roles, reporting, AJAX-powered interfaces, and modular architecture.',
+        stack: ['Laravel', 'jQuery', 'AJAX', 'MySQL', 'Bootstrap'],
         live: '#',
         source: '#',
     },
 ];
 
+
+
 const experience = [
     {
-        role: 'Frontend Developer',
+        role: 'Laravel Developer',
         company: 'Freelance / Portfolio Work',
-        period: '2025 - Present',
+        period: '2023 - Present',
         summary:
-            'Built and refined responsive frontend interfaces with modern React workflows, reusable sections, and client-focused visual delivery.',
+            'Developed and maintained web applications using Laravel framework, implementing secure payment systems, API integrations, and optimized database queries.',
         points: [
-            'Designed landing pages, dashboards, forms, and portfolio sections that stay polished across devices.',
-            'Focused on smooth interactions, clean spacing systems, and reusable component-based structures.',
-            'Prepared static frontend builds that are easy to host on GitHub Pages or other simple deploy targets.',
+            'Built e-commerce platforms with Razorpay and Stripe payment gateways',
+            'Integrated third-party APIs for enhanced functionality',
+            'Developed custom WordPress themes and plugins with Elementor',
+            'Implemented Laravel Sanctum for API authentication',
+            'Managed background jobs and queues for efficient processing',
         ],
     },
 ];
 
+
+
 const contactLinks = [
-    { label: 'Email', value: 'hello@frontendfolio.dev', href: 'mailto:hello@frontendfolio.dev' },
-    { label: 'GitHub', value: 'github.com/frontendfolio', href: 'https://github.com/frontendfolio' },
-    { label: 'LinkedIn', value: 'linkedin.com/in/frontendfolio', href: 'https://linkedin.com/in/frontendfolio' },
+    { label: 'Email', value: 'hello@laraveldev.dev', href: 'mailto:hello@laraveldev.dev' },
+    { label: 'GitHub', value: 'github.com/laraveldev', href: 'https://github.com/laraveldev' },
+    { label: 'LinkedIn', value: 'linkedin.com/in/laraveldev', href: 'https://linkedin.com/in/laraveldev' },
 ];
 
 const heroImage =
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
+
+
+const profileImage = "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=400";
 
 function App() {
     const [theme, setTheme] = useState(() => {
@@ -94,18 +122,18 @@ function App() {
             return stored;
         }
 
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return window.matchMedia('(prefe    rs-color-scheme: dark)').matches ? 'dark' : 'light';
     });
 
     useEffect(() => {
-        document.body.classList.toggle('dark', theme === 'dark');
+        document.body.classList.toggle('dark', theme === 'dark');   
         document.documentElement.classList.toggle('dark', theme === 'dark');
         window.localStorage.setItem('portfolio-theme', theme);
     }, [theme]);
 
     const yearLabel = useMemo(() => new Date().getFullYear(), []);
 
-    return (
+    return (        
         <div className="relative overflow-x-hidden">
             <BackgroundGlow />
             <Header theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
@@ -132,7 +160,7 @@ function Header({ theme, onToggleTheme }) {
             <div className="container-shell section-card rounded-full px-4 py-3">
                 <div className="flex items-center justify-between gap-4">
                     <a href="#hero" className="display-font text-sm font-bold uppercase tracking-[0.24em] text-slate-700 dark:text-slate-200">
-                        Frontend Dev
+                        Laravel Dev
                     </a>
 
                     <nav className="hidden items-center gap-6 md:flex">
@@ -163,6 +191,7 @@ function Header({ theme, onToggleTheme }) {
 
 function Hero() {
     const [imageReady, setImageReady] = useState(true);
+    const [profileImageReady, setProfileImageReady] = useState(true);
 
     return (
         <section id="hero" className="grid gap-6 pt-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-start lg:pt-8">
@@ -172,15 +201,38 @@ function Hero() {
                 transition={{ duration: 0.6 }}
                 className="section-card relative z-10 rounded-[2rem] p-6 sm:p-8 lg:p-12"
             >
+                {/* Profile Photo */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mb-6 flex justify-center lg:justify-start"
+                >
+                    <div className="relative">
+                        {profileImageReady ? (
+                            <img
+                                src={profileImage}
+                                alt="Profile Photo"
+                                className="h-32 w-32 rounded-full border-4 border-white shadow-lg object-cover dark:border-slate-700"
+                                onError={() => setProfileImageReady(false)}
+                            />
+                        ) : (
+                            <div className="h-32 w-32 rounded-full border-4 border-white bg-gradient-to-br from-brand-400 to-brand-600 shadow-lg flex items-center justify-center dark:border-slate-700">
+                                <span className="text-4xl font-bold text-white">LD</span>
+                            </div>
+                        )}
+                        <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-green-500 border-4 border-white dark:border-slate-800"></div>
+                    </div>
+                </motion.div>
+
                 <div className="mb-6 inline-flex rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-200">
-                    Frontend Developer | React Portfolio
+                    Laravel Developer | Full-Stack Portfolio
                 </div>
                 <h1 className="display-font max-w-3xl text-4xl font-bold leading-[1.08] text-slate-900 sm:text-5xl lg:text-6xl xl:text-[4.5rem] dark:text-white">
-                    Building clean digital products with <span className="text-gradient">modern frontend experiences.</span>
+                    Building robust web applications with <span className="text-gradient">Laravel and modern technologies.</span>
                 </h1>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
-                    I&apos;m a frontend developer focused on responsive interfaces, smooth user journeys, and portfolio-ready
-                    experiences. I enjoy turning visual ideas into fast, maintainable web apps.
+                    I&apos;m a Laravel developer with 1 year of experience, specializing in full-stack web development, payment integrations, and scalable applications. I enjoy creating secure, efficient solutions using PHP, Laravel, and various frontend technologies.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a
@@ -268,16 +320,16 @@ function Hero() {
 
 function About() {
     return (
-        <Section id="about" eyebrow="About" title="A developer who cares about clarity, speed, and maintainable interfaces.">
+        <Section id="about" eyebrow="About" title="A Laravel developer passionate about creating secure, scalable web applications.">
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <p className="text-base leading-8 text-slate-600 dark:text-slate-300">
-                    Over the last year, I&apos;ve been building frontend interfaces with a strong focus on responsive layouts,
-                    clean section flows, and UI that feels polished across devices. I enjoy shipping practical experiences,
-                    improving visual structure, and using patterns that make products easier to extend.
+                    With over a year of experience in Laravel development, I specialize in building full-stack web applications with a focus on security, performance, and user experience. My expertise spans from frontend technologies like HTML, CSS, JavaScript, and jQuery to backend development with Laravel, including advanced features like queues, jobs, and API integrations.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
-                    <MiniCard title="Design mindset" text="Layout clarity, balanced hierarchy, responsive spacing, and user-first polish." />
-                    <MiniCard title="Frontend delivery" text="React + Tailwind interfaces that are smooth, fast, and mobile-ready." />
+                    <MiniCard title="Backend Expertise" text="Laravel framework, PHP development, database design, API creation." />
+                    <MiniCard title="Frontend Skills" text="HTML5, CSS3, JavaScript, jQuery, AJAX, responsive design." />
+                    <MiniCard title="CMS & Tools" text="WordPress development, Elementor, payment gateways integration." />
+                    <MiniCard title="Security & Performance" text="Laravel Sanctum, secure coding practices, optimized queries." />
                 </div>
             </div>
         </Section>
@@ -286,7 +338,7 @@ function About() {
 
 function Skills() {
     return (
-        <Section id="skills" eyebrow="Skills" title="Balanced across visual design thinking and modern interface delivery.">
+        <Section id="skills" eyebrow="Skills" title="Full-stack development expertise from frontend to backend technologies.">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {skills.map((skill, index) => (
                     <motion.article
@@ -318,9 +370,10 @@ function Skills() {
     );
 }
 
+
 function Projects() {
     return (
-        <Section id="projects" eyebrow="Projects" title="Selected concepts that show frontend problem-solving with modern product thinking.">
+        <Section id="projects" eyebrow="Projects" title="Showcase of Laravel applications, WordPress themes, and integrated solutions.">
             <div className="grid gap-5 lg:grid-cols-2">
                 {projects.map((project, index) => (
                     <motion.article
@@ -378,7 +431,7 @@ function Projects() {
 
 function Experience() {
     return (
-        <Section id="experience" eyebrow="Experience" title="One focused year of real frontend design and development experience.">
+        <Section id="experience" eyebrow="Experience" title="One year of hands-on Laravel development and full-stack project experience.">
             <div className="grid gap-5">
                 {experience.map((item, index) => (
                     <motion.article
@@ -417,24 +470,63 @@ function Experience() {
 }
 
 function Contact() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [projectType, setProjectType] = useState("");
-    const [message, setMessage] = useState("");
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const subject = encodeURIComponent(`Portfolio enquiry: ${projectType || 'New project'}`);
-        const body = encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nMessage:\n${message}`,
-        );
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [projectType, setProjectType] = useState('');
+    const [message, setMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({ type: '', text: '' });
 
-        window.location.href = `mailto:hello@frontendfolio.dev?subject=${subject}&body=${body}`;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (isSubmitting) {
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus({ type: '', text: '' });
+
+        try {
+            await axios.post(
+                import.meta.env.VITE_CONTACT_API_URL || 'http://127.0.0.1:8000/api/contact',
+                {
+                    name,
+                    email,
+                    project_type: projectType,
+                    message,
+                },
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                },
+            );
+
+            setSubmitStatus({ type: 'success', text: 'Message sent successfully.' });
+            setName('');
+            setEmail('');
+            setProjectType('');
+            setMessage('');
+        } catch (error) {
+            const apiMessage = error.response?.data?.message;
+            const validationErrors = error.response?.data?.errors;
+            const firstValidationError = validationErrors ? Object.values(validationErrors).flat()[0] : '';
+
+            setSubmitStatus({
+                type: 'error',
+                text: apiMessage || firstValidationError || 'Message send failed. Check Laravel API and try again.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
-        <Section id="contact" eyebrow="Contact" title="Let's build something practical.">
+        <Section id="contact" eyebrow="Contact" title="Ready to discuss your next Laravel project.">
             <div className="section-card rounded-[1.75rem] p-6">
-                
+
                 <form className="grid gap-4" onSubmit={handleSubmit}>
 
                     <FormField
@@ -442,6 +534,7 @@ function Contact() {
                         placeholder="Enter your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
 
                     <FormField
@@ -450,6 +543,7 @@ function Contact() {
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
 
                     <FormField
@@ -466,15 +560,28 @@ function Contact() {
                             placeholder="Tell me about your idea..."
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
-                            className="rounded-[1.2rem] border px-4 py-3"
+                            required
+                            className="rounded-[1.2rem] border border-slate-300/80 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-400 dark:border-slate-700 dark:bg-slate-950/55 dark:text-slate-100"
                         />
                     </label>
 
+                    {submitStatus.text ? (
+                        <p
+                            className={`text-sm font-medium ${submitStatus.type === 'success'
+                                ? 'text-emerald-600 dark:text-emerald-300'
+                                : 'text-rose-600 dark:text-rose-300'
+                                }`}
+                        >
+                            {submitStatus.text}
+                        </p>
+                    ) : null}
+
                     <button
                         type="submit"
-                        className="rounded-full bg-black text-white py-3"
+                        disabled={isSubmitting}
+                        className="rounded-full bg-black py-3 text-white transition hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
 
                 </form>
@@ -483,19 +590,21 @@ function Contact() {
     );
 }
 
+
+
 function Footer({ year }) {
     return (
         <footer className="container-shell relative z-10 border-t border-slate-200/70 py-8 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p>&copy; {year} Frontend Developer Portfolio. Crafted with React and Tailwind CSS.</p>
+                <p>&copy; {year} Laravel Developer Portfolio. Built with Laravel expertise and modern web technologies.</p>
                 <div className="flex gap-4">
-                    <a href="https://github.com/frontendfolio" className="transition hover:text-brand-500 dark:hover:text-brand-300">
+                    <a href="https://github.com/mlkmonu" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/frontendfolio" className="transition hover:text-brand-500 dark:hover:text-brand-300">
+                    <a href="https://linkedin.com/in/laraveldev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         LinkedIn
                     </a>
-                    <a href="mailto:hello@frontendfolio.dev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
+                    <a href="mailto:hello@laraveldev.dev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         Email
                     </a>
                 </div>
@@ -534,7 +643,7 @@ function MiniCard({ title, text }) {
     );
 }
 
-function FormField({ label, type = 'text', placeholder, value, onChange }) {
+function FormField({ label, type = 'text', placeholder, value, onChange, required = false }) {
     return (
         <label className="grid gap-2">
             <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">{label}</span>
@@ -543,6 +652,7 @@ function FormField({ label, type = 'text', placeholder, value, onChange }) {
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
+                required={required}
                 className="rounded-[1.2rem] border border-slate-300/80 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-400 dark:border-slate-700 dark:bg-slate-950/55 dark:text-slate-100"
             />
         </label>
