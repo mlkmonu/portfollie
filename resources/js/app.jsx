@@ -14,11 +14,13 @@ const navigation = [
 
 
 
+
 // ======================= UPDATED CONTENT =======================
+
 
 const stats = [
     { value: '1+', label: 'Years of hands-on Laravel experience' },
-    { value: '6+', label: 'Projects built and tested' },
+    { value: '5+', label: 'Live projects deployed' },
     { value: 'Learning', label: 'Continuously improving and exploring new tools' },
 ];
 
@@ -32,9 +34,11 @@ const skills = [
     { name: 'jQuery', level: 65, detail: 'Event handling, AJAX requests' },
     { name: 'WordPress', level: 70, detail: 'Custom themes, Elementor usage' },
     { name: 'API Integration', level: 70, detail: 'REST APIs, third-party integrations' },
-    { name: 'Payment Integration', level: 65, detail: 'Razorpay, Stripe basics' },
-    { name: 'Laravel Sanctum', level: 65, detail: 'Basic API authentication' },
+    { name: 'Payment Integration', level: 70, detail: 'Razorpay, Stripe' },
+    { name: 'Laravel Sanctum', level: 65, detail: 'API authentication' },
 ];
+
+
 
 const projects = [
     {
@@ -45,6 +49,7 @@ const projects = [
         live: '#',
         source: '#',
     },
+
     {
         title: 'WordPress Custom Theme',
         description:
@@ -53,6 +58,7 @@ const projects = [
         live: '#',
         source: '#',
     },
+
     {
         title: 'Admin Dashboard',
         description:
@@ -70,6 +76,8 @@ const projects = [
         source: '#',
     },
 ];
+
+  
 
 const experience = [
     {
@@ -223,6 +231,15 @@ function Hero() {
                     I’m a Laravel developer with around 1 year of hands-on experience. I’ve worked on projects like e-commerce websites, dashboards, and API integrations. I focus on building practical features and improving my backend skills.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+
+                    <a
+                        href="/resume.pdf"
+                        download
+                        className="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700"
+                    >
+                        Download Resume
+                    </a>
+
                     <a
                         href="#projects"
                         className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-brand-600 dark:bg-white dark:text-slate-950 dark:hover:bg-brand-200"
