@@ -16,7 +16,7 @@ const navigation = [
 
 
 // ======================= UPDATED CONTENT =======================
-
+// https://portfollie.vercel.app/
 
 const stats = [
     { value: '1+', label: 'Years of hands-on Laravel experience' },
@@ -34,14 +34,15 @@ const skills = [
     { name: 'jQuery', level: 65, detail: 'Event handling, AJAX requests' },
     { name: 'WordPress', level: 70, detail: 'Custom themes, Elementor usage' },
     { name: 'API Integration', level: 70, detail: 'REST APIs, third-party integrations' },
-    { name: 'Payment Integration', level: 70, detail: 'Razorpay, Stripe' },
-    { name: 'Laravel Sanctum', level: 65, detail: 'API authentication' },
+    { name: 'Payment Integration', level: 65, detail: 'Razorpay, Stripe basics' },
+    { name: 'Laravel Sanctum', level: 65, detail: 'Basic API authentication' },
 ];
 
 
 
+
 const projects = [
-    {
+    {   
         title: 'E-Commerce Website',
         description:
             'Built an e-commerce web application using Laravel where users can browse products, add to cart, and place orders. Integrated Razorpay for payments and handled backend validation.',
@@ -57,7 +58,7 @@ const projects = [
         stack: ['WordPress', 'PHP', 'Elementor', 'HTML', 'CSS'],
         live: '#',
         source: '#',
-    },
+    },  
 
     {
         title: 'Admin Dashboard',
@@ -352,7 +353,7 @@ function Skills() {
         <Section id="skills" eyebrow="Skills" title="Full-stack development expertise from frontend to backend technologies.">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {skills.map((skill, index) => (
-                    <motion.article
+                    <motion .article
                         key={skill.name}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -515,7 +516,7 @@ function Contact() {
                 },
             );
 
-            setSubmitStatus({ type: 'success', text: 'Message sent successfully.' });
+            setSubmitStatus({ type: 'success', text: 'Thank you! Your message has been sent successfully. I’ll review it and respond shortly.' });
             setName('');
             setEmail('');
             setProjectType('');
