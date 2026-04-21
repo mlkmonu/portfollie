@@ -22,7 +22,6 @@ const stats = [
 
 
 
-
 const skills = [
     { name: 'Laravel', level: 90, detail: 'MVC architecture, Eloquent ORM, Blade templating, API development, authentication' },
     { name: 'PHP', level: 88, detail: 'Server-side scripting, object-oriented programming, database interactions' },
@@ -59,8 +58,6 @@ const projects = [
     },
 
 
-
-            
 
 
     {
