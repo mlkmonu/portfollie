@@ -14,86 +14,76 @@ const navigation = [
 
 
 
+// ======================= UPDATED CONTENT =======================
+
 const stats = [
-    { value: '1+', label: 'Years of Laravel de  velopment experience' },
-    { value: '10+', label: 'Projects completed with modern web technologies' },
-    { value: '100%', label: 'Responsive and secure web applications' },
+    { value: '1+', label: 'Years of hands-on Laravel experience' },
+    { value: '6+', label: 'Projects built and tested' },
+    { value: 'Learning', label: 'Continuously improving and exploring new tools' },
 ];
-
-
 
 const skills = [
-    { name: 'Laravel', level: 90, detail: 'MVC architecture, Eloquent ORM, Blade templating, API development, authentication' },
-    { name: 'PHP', level: 88, detail: 'Server-side scripting, object-oriented programming, database interactions' },
-    { name: 'HTML5', level: 92, detail: 'Semantic layouts, SEO-friendly structure, accessible content hierarchy' },
-    { name: 'CSS3', level: 85, detail: 'Responsive design, animations, modern styling techniques' },
-    { name: 'JavaScript', level: 86, detail: 'Interactive experiences, DOM manipulation, AJAX requests' },
-    { name: 'jQuery', level: 80, detail: 'DOM manipulation, event handling, AJAX calls' },
-    { name: 'WordPress', level: 78, detail: 'Custom themes, plugins development, Elementor integration' },
-    { name: 'Elementor', level: 75, detail: 'Page building, custom widgets, responsive design' },
-    { name: 'API Integration', level: 85, detail: 'Third-party APIs, payment gateways, RESTful services' },
-    { name: 'Payment Systems', level: 82, detail: 'Razorpay and Stripe integration, secure transactions' },
-    { name: 'Laravel Sanctum', level: 80, detail: 'API authentication, token management, SPA authentication' },
-    { name: 'Queues & Jobs', level: 78, detail: 'Background processing, job dispatching, queue management' },
+    { name: 'Laravel', level: 75, detail: 'MVC, CRUD, authentication, REST APIs, basic project structure' },
+    { name: 'PHP', level: 70, detail: 'Core PHP, OOP basics, backend logic handling' },
+    { name: 'MySQL', level: 70, detail: 'Database design, queries, relationships' },
+    { name: 'HTML5', level: 85, detail: 'Semantic layout, forms, structure' },
+    { name: 'CSS3', level: 80, detail: 'Responsive design, layouts, basic animations' },
+    { name: 'JavaScript', level: 65, detail: 'DOM manipulation, basic interactivity, AJAX' },
+    { name: 'jQuery', level: 65, detail: 'Event handling, AJAX requests' },
+    { name: 'WordPress', level: 70, detail: 'Custom themes, Elementor usage' },
+    { name: 'API Integration', level: 70, detail: 'REST APIs, third-party integrations' },
+    { name: 'Payment Integration', level: 65, detail: 'Razorpay, Stripe basics' },
+    { name: 'Laravel Sanctum', level: 65, detail: 'Basic API authentication' },
 ];
-
 
 const projects = [
     {
-        title: 'E-Commerce Platform',
+        title: 'E-Commerce Website',
         description:
-            'A full-featured e-commerce website built with Laravel, featuring payment integration with Razorpay and Stripe, inventory management, and responsive design.',
-        stack: ['Laravel', 'PHP', 'MySQL', 'Razorpay', 'Stripe'],
+            'Built an e-commerce web application using Laravel where users can browse products, add to cart, and place orders. Integrated Razorpay for payments and handled backend validation.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'Razorpay'],
         live: '#',
         source: '#',
     },
-
     {
         title: 'WordPress Custom Theme',
         description:
-            'Custom WordPress theme with Elementor integration, advanced custom fields, and optimized for performance and SEO.',
+            'Developed a custom WordPress theme using Elementor and PHP. Focused on layout customization, responsiveness, and basic SEO structure.',
         stack: ['WordPress', 'PHP', 'Elementor', 'HTML', 'CSS'],
         live: '#',
         source: '#',
     },
-
-
-
-
     {
-        title: 'API-Driven Dashboard',
+        title: 'Admin Dashboard',
         description:
-            'Laravel-based dashboard with third-party API integrations, real-time data processing using queues and jobs, and secure authentication with Sanctum.',
-        stack: ['Laravel', 'API', 'Sanctum', 'Queues', 'JavaScript'],
+            'Created a Laravel-based dashboard with API integration and authentication using Sanctum. Used AJAX for dynamic data updates.',
+        stack: ['Laravel', 'API', 'Sanctum', 'JavaScript'],
         live: '#',
         source: '#',
     },
-
     {
         title: 'Business Management System',
         description:
-            'Comprehensive business management application with user roles, reporting, AJAX-powered interfaces, and modular architecture.',
-        stack: ['Laravel', 'jQuery', 'AJAX', 'MySQL', 'Bootstrap'],
+            'Built a basic management system with user roles, reports, and CRUD features. Used jQuery and AJAX for dynamic UI.',
+        stack: ['Laravel', 'jQuery', 'AJAX', 'MySQL'],
         live: '#',
         source: '#',
     },
 ];
 
-
-
 const experience = [
     {
         role: 'Laravel Developer',
-        company: 'Freelance / Portfolio Work',
+        company: 'Freelance / Personal Projects',
         period: '2023 - Present',
         summary:
-            'Developed and maintained web applications using Laravel framework, implementing secure payment systems, API integrations, and optimized database queries.',
+            'Worked on freelance and personal Laravel projects focusing on backend logic, database design, and real-world feature implementation.',
         points: [
-            'Built e-commerce platforms with Razorpay and Stripe payment gateways',
-            'Integrated third-party APIs for enhanced functionality',
-            'Developed custom WordPress themes and plugins with Elementor',
-            'Implemented Laravel Sanctum for API authentication',
-            'Managed background jobs and queues for efficient processing',
+            'Built small web apps like e-commerce and dashboards',
+            'Integrated Razorpay payment gateway',
+            'Created and consumed REST APIs',
+            'Worked with WordPress for basic projects',
+            'Handled CRUD operations and database queries',
         ],
     },
 ];
@@ -123,14 +113,14 @@ function App() {
     });
 
     useEffect(() => {
-        document.body.classList.toggle('dark', theme === 'dark');   
+        document.body.classList.toggle('dark', theme === 'dark');
         document.documentElement.classList.toggle('dark', theme === 'dark');
         window.localStorage.setItem('portfolio-theme', theme);
     }, [theme]);
 
     const yearLabel = useMemo(() => new Date().getFullYear(), []);
 
-    return (        
+    return (
         <div className="relative overflow-x-hidden">
             <BackgroundGlow />
             <Header theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
@@ -226,10 +216,11 @@ function Hero() {
                     Laravel Developer | Full-Stack Portfolio
                 </div>
                 <h1 className="display-font max-w-3xl text-4xl font-bold leading-[1.08] text-slate-900 sm:text-5xl lg:text-6xl xl:text-[4.5rem] dark:text-white">
-                    Building robust web applications with <span className="text-gradient">Laravel and modern technologies.</span>
+                    I build web applications using <span className="text-gradient">Laravel and PHP.</span>
                 </h1>
+
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
-                    I&apos;m a Laravel developer with 1 year of experience, specializing in full-stack web development, payment integrations, and scalable applications. I enjoy creating secure, efficient solutions using PHP, Laravel, and various frontend technologies.
+                    I’m a Laravel developer with around 1 year of hands-on experience. I’ve worked on projects like e-commerce websites, dashboards, and API integrations. I focus on building practical features and improving my backend skills.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a
@@ -320,7 +311,13 @@ function About() {
         <Section id="about" eyebrow="About" title="A Laravel developer passionate about creating secure, scalable web applications.">
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <p className="text-base leading-8 text-slate-600 dark:text-slate-300">
-                    With over a year of experience in Laravel development, I specialize in building full-stack web applications with a focus on security, performance, and user experience. My expertise spans from frontend technologies like HTML, CSS, JavaScript, and jQuery to backend development with Laravel, including advanced features like queues, jobs, and API integrations.
+                    I started learning web development with PHP and gradually moved into Laravel to build structured applications.
+                    Over the past year, I’ve worked on multiple projects where I handled backend development, APIs, and basic frontend integration.
+
+                    I’ve built features like authentication systems, payment integrations, admin dashboards, and CRUD applications.
+                    I’m comfortable working with databases and connecting frontend with backend.
+
+                    I prefer learning by building real projects and solving practical problems, and I’m still improving my frontend skills.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                     <MiniCard title="Backend Expertise" text="Laravel framework, PHP development, database design, API creation." />
