@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AnimatePresence, motion } from 'framer-motion';
+// import { AnimatePresence, eachAxis, motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import axios from 'axios';
+import { AnimatePresence, motion } from 'framer-motion';
+// import axios from 'axios';
 import '../css/app.css';
 
 
@@ -13,10 +14,6 @@ const navigation = [
     { label: 'Experience', href: '#experience' },
     { label: 'Contact', href: '#contact' },
 ];
-
-
-
-
 
 
 // EmailJS (BEST for React without backend)
@@ -48,8 +45,8 @@ const projects = [
     {
         title: 'Deepringer Membership Platform',
         description:
-            'Built a complete membership system with authentication, user roles, and Stripe subscription payments.',
-        result: 'Reduced manual work by 80% and automated user onboarding.',
+            'Built a subscription-based membership platform with secure authentication, role-based access, and Stripe integration for recurring payments.',
+        result: 'Reduced manual onboarding by 80% and automated subscription management.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Stripe', 'JavaScript'],
         live: 'https://team20.in/deepringer',
         source: '',
@@ -57,35 +54,31 @@ const projects = [
     {
         title: 'RSKF Donation Platform',
         description:
-            'Developed a donation platform with cart and checkout system along with admin dashboard.',
-        result: 'Enabled smooth donation flow and better transaction management.',
+            'Developed a complete donation system with cart, checkout flow, and admin dashboard for managing transactions.',
+        result: 'Simplified donation process and improved transaction tracking.',
         stack: ['Laravel', 'Bootstrap', 'JavaScript', 'MySQL'],
         live: 'https://team20.in/RSKFDonation/',
         source: '',
     },
-
-    {
-        title: 'HospiceTalk (QA & Testing)',
-        description:
-            'Performed UI testing, bug reporting, and usability improvements.',
-        result: 'Improved performance and user experience by fixing critical issues.',
-        stack: ['Testing', 'UI QA'],
-        live: 'https://hospicetalk.com/',
-        source: '',
-    },
-
-
     {
         title: 'Hotel Management System',
         description:
-            'A full-stack hotel management platform where users can add hotel posts, and admin controls all listings. After 1 post, users must purchase a plan to continue posting. Includes complete payment system integration.',
+            'Created a platform where users can post hotel listings with a subscription model after the first post, including full payment integration.',
         result:
-            'Automated user posting limits with subscription-based access and secure payment flow.',
+            'Monetized platform with subscription system and automated user restrictions.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Payment Gateway', 'JavaScript'],
         live: 'https://github.com/mlkmonu/hotelmanegment.git',
         source: 'https://github.com/mlkmonu/hotelmanegment.git',
+    },
+    {
+        title: 'HospiceTalk (QA & Testing)',
+        description:
+            'Performed UI testing, bug reporting, and usability improvements for a live platform.',
+        result: 'Improved overall performance and user experience by fixing critical issues.',
+        stack: ['Testing', 'UI QA'],
+        live: 'https://hospicetalk.com/',
+        source: '',
     }
-
 ];
 
 const experience = [
@@ -179,7 +172,7 @@ function Header({ theme, onToggleTheme }) {
                                 className="text-sm font-medium text-slate-600 transition hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300"
                             >
                                 {item.label}
-                            </a>
+                            </a>    
                         ))}
                     </nav>
 
@@ -236,13 +229,14 @@ function Hero() {
                 <div className="mb-6 inline-flex rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-200">
                     Laravel Developer | Full-Stack Portfolio
                 </div>
-                <h1 className="display-font ...">
-                    I help businesses  <span className="text-gradient">build secure Laravel applications with payment systems,</span>dashboards, and real-world features.
+                <h1 className="display-font">
+                    I build <span className="text-gradient">subscription-based & payment-enabled Laravel applications</span> that help businesses automate operations and grow faster.
                 </h1>
 
-                <p className="mt-6 ...">
-                    Laravel developer with 1+ year experience building membership systems, dashboards, and APIs.
-                    Specialized in backend development, payment integrations, and real-world problem solving.
+                <p className="mt-6">
+                    I specialize in building membership systems, admin dashboards, and secure payment integrations using Laravel.
+
+                    Helping startups and businesses turn ideas into real, scalable web applications.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
@@ -348,13 +342,17 @@ function About() {
         <Section id="about" eyebrow="About" title="A Laravel developer passionate about creating secure, scalable web applications.">
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <p className="text-base leading-8 text-slate-600 dark:text-slate-300">
-                    I started learning web development with PHP and gradually moved into Laravel to build structured applications.
-                    Over the past year, I’ve worked on multiple projects where I handled backend development, APIs, and basic frontend integration.
+                    I’m a Laravel developer focused on building real-world applications that solve business problems.
 
-                    I’ve built features like authentication systems, payment integrations, admin dashboards, and CRUD applications.
-                    I’m comfortable working with databases and connecting frontend with backend.
+                    I have experience working on membership systems, payment platforms, and admin dashboards.
+                    My main focus is backend development, secure systems, and scalable architecture.
 
-                    I prefer learning by building real projects and solving practical problems, and I’m still improving my frontend skills.
+                    I specialize in:
+                    • Laravel backend development
+                    • Payment gateway integration
+                    • Database design & optimization
+
+                    I continuously improve by building real projects and solving practical challenges.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                     <MiniCard title="Backend Expertise" text="Laravel framework, PHP development, database design, API creation." />
@@ -366,6 +364,26 @@ function About() {
         </Section>
     );
 }
+
+function Services() {
+    return (
+        <Section
+            id="services"
+            eyebrow="Services"
+            title="What I can help you build"
+        >
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <MiniCard title="Custom Laravel Development" text="Full-stack web applications built for your business needs." />
+                <MiniCard title="Payment Integration" text="Stripe, Razorpay, subscriptions, secure checkout systems." />
+                <MiniCard title="Admin Dashboards" text="Manage users, data, and operations with clean dashboards." />
+                <MiniCard title="API Development" text="REST APIs for mobile apps and integrations." />
+                <MiniCard title="Bug Fixing" text="Fix issues and improve performance of existing apps." />
+                <MiniCard title="Database Optimization" text="Efficient queries and scalable database design." />
+            </div>
+        </Section>
+    );
+}
+
 
 function Skills() {
     return (
@@ -400,6 +418,10 @@ function Skills() {
         </Section>
     );
 }
+
+
+
+
 
 
 function Projects() {
