@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -13,89 +14,74 @@ const navigation = [
 ];
 
 
-
-
 // ======================= UPDATED CONTENT =======================
 // https://portfollie.vercel.app/
 
+// ======================= UPDATED CONTENT =======================
+
 const stats = [
-    { value: '1+', label: 'Years of hands-on Laravel experience' },
-    { value: '5+', label: 'Live projects deployed' },
-    { value: 'Learning', label: 'Continuously improving and exploring new tools' },
+    { value: '1+', label: 'Years of Laravel development experience' },
+    { value: '5+', label: 'Real-world projects built & deployed' },
+    { value: '100%', label: 'Focus on practical & scalable solutions' },
 ];
 
 const skills = [
-    { name: 'Laravel', level: 75, detail: 'MVC, CRUD, authentication, REST APIs, basic project structure' },
-    { name: 'PHP', level: 70, detail: 'Core PHP, OOP basics, backend logic handling' },
-    { name: 'MySQL', level: 70, detail: 'Database design, queries, relationships' },
-    { name: 'HTML5', level: 85, detail: 'Semantic layout, forms, structure' },
-    { name: 'CSS3', level: 80, detail: 'Responsive design, layouts, basic animations' },
-    { name: 'JavaScript', level: 65, detail: 'DOM manipulation, basic interactivity, AJAX' },
-    { name: 'jQuery', level: 65, detail: 'Event handling, AJAX requests' },
-    { name: 'WordPress', level: 70, detail: 'Custom themes, Elementor usage' },
-    { name: 'API Integration', level: 70, detail: 'REST APIs, third-party integrations' },
-    { name: 'Payment Integration', level: 65, detail: 'Razorpay, Stripe basics' },
-    { name: 'Laravel Sanctum', level: 65, detail: 'Basic API authentication' },
+    { name: 'Laravel', level: 'Intermediate', detail: 'MVC architecture, authentication, REST APIs, real-world apps' },
+    { name: 'PHP', level: 'Intermediate', detail: 'Core PHP, OOP, backend logic' },
+    { name: 'MySQL', level: 'Intermediate', detail: 'Database design, relationships, queries' },
+    { name: 'HTML5', level: 'Advanced', detail: 'Semantic structure, forms' },
+    { name: 'CSS3', level: 'Advanced', detail: 'Responsive design, layouts' },
+    { name: 'JavaScript', level: 'Intermediate', detail: 'DOM, AJAX, interactivity' },
+    { name: 'jQuery', level: 'Intermediate', detail: 'Event handling, AJAX' },
+    { name: 'WordPress', level: 'Intermediate', detail: 'Themes, Elementor' },
+    { name: 'API Integration', level: 'Intermediate', detail: 'REST APIs, third-party' },
+    { name: 'Payment Integration', level: 'Intermediate', detail: 'Stripe, Razorpay' },
 ];
-
-
-
 
 const projects = [
-    {   
-        title: 'E-Commerce Website',
-        description:
-            'Built an e-commerce web application using Laravel where users can browse products, add to cart, and place orders. Integrated Razorpay for payments and handled backend validation.',
-        stack: ['Laravel', 'PHP', 'MySQL', 'Razorpay'],
-        live: '#',
-        source: '#',
-    },
-
     {
-        title: 'WordPress Custom Theme',
+        title: 'Deepringer Membership Platform',
         description:
-            'Developed a custom WordPress theme using Elementor and PHP. Focused on layout customization, responsiveness, and basic SEO structure.',
-        stack: ['WordPress', 'PHP', 'Elementor', 'HTML', 'CSS'],
-        live: '#',
-        source: '#',
-    },  
-
-    {
-        title: 'Admin Dashboard',
-        description:
-            'Created a Laravel-based dashboard with API integration and authentication using Sanctum. Used AJAX for dynamic data updates.',
-        stack: ['Laravel', 'API', 'Sanctum', 'JavaScript'],
-        live: '#',
-        source: '#',
+            'Built a membership platform with Stripe subscriptions, secure authentication, and creator system. Automated onboarding and payment flow.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'Stripe', 'JavaScript'],
+        live: 'https://team20.in/deepringer',
+        source: 'Source available on request',
     },
     {
-        title: 'Business Management System',
+        title: 'RSKF Donation Platform',
         description:
-            'Built a basic management system with user roles, reports, and CRUD features. Used jQuery and AJAX for dynamic UI.',
-        stack: ['Laravel', 'jQuery', 'AJAX', 'MySQL'],
-        live: '#',
+            'Developed donation system with cart and checkout. Built admin panel for managing users and transactions efficiently.',
+        stack: ['Laravel', 'Bootstrap', 'JavaScript', 'MySQL'],
+        live: 'https://team20.in/RSKFDonation/',
+        source: 'Source available on request',
+    },
+    {
+        title: 'HospiceTalk (QA & Testing)',
+        description:
+            'Performed QA testing, UI validation, and bug reporting to improve usability and performance.',
+        stack: ['Testing', 'UI QA'],
+        live: 'https://hospicetalk.com/',
         source: '#',
     },
 ];
-
-  
 
 const experience = [
     {
-        role: 'Laravel Developer',
-        company: 'Freelance / Personal Projects',
+        role: 'Freelance Laravel Developer',
+        company: 'Self-Employed',
         period: '2023 - Present',
         summary:
-            'Worked on freelance and personal Laravel projects focusing on backend logic, database design, and real-world feature implementation.',
+            'Working on real-world Laravel apps including membership systems and dashboards.',
         points: [
-            'Built small web apps like e-commerce and dashboards',
-            'Integrated Razorpay payment gateway',
-            'Created and consumed REST APIs',
-            'Worked with WordPress for basic projects',
-            'Handled CRUD operations and database queries',
+            'Built full-stack Laravel applications',
+            'Integrated Stripe & Razorpay payments',
+            'Developed REST APIs',
+            'Created admin dashboards',
+            'Handled database design & optimization',
         ],
     },
 ];
+
 
 
 
@@ -104,6 +90,9 @@ const contactLinks = [
     { label: 'GitHub', value: 'github.com/laraveldev', href: 'https://github.com/laraveldev' },
     { label: 'LinkedIn', value: 'linkedin.com/in/laraveldev', href: 'https://linkedin.com/in/laraveldev' },
 ];
+
+
+
 
 const heroImage =
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
@@ -118,7 +107,7 @@ function App() {
             return stored;
         }
 
-        return window.matchMedia('(prefe    rs-color-scheme: dark)').matches ? 'dark' : 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     });
 
     useEffect(() => {
@@ -224,12 +213,13 @@ function Hero() {
                 <div className="mb-6 inline-flex rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-200">
                     Laravel Developer | Full-Stack Portfolio
                 </div>
-                <h1 className="display-font max-w-3xl text-4xl font-bold leading-[1.08] text-slate-900 sm:text-5xl lg:text-6xl xl:text-[4.5rem] dark:text-white">
-                    I build web applications using <span className="text-gradient">Laravel and PHP.</span>
+                <h1 className="display-font ...">
+                    I build <span className="text-gradient">secure & scalable Laravel applications</span> with real-world features.
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
-                    I’m a Laravel developer with around 1 year of hands-on experience. I’ve worked on projects like e-commerce websites, dashboards, and API integrations. I focus on building practical features and improving my backend skills.
+                <p className="mt-6 ...">
+                    Laravel developer with 1+ year experience building membership systems, dashboards, and APIs.
+                    Specialized in backend development, payment integrations, and real-world problem solving.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
@@ -353,7 +343,7 @@ function Skills() {
         <Section id="skills" eyebrow="Skills" title="Full-stack development expertise from frontend to backend technologies.">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {skills.map((skill, index) => (
-                    <motion .article
+                    <motion.article
                         key={skill.name}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -608,7 +598,7 @@ function Footer({ year }) {
     return (
         <footer className="container-shell relative z-10 border-t border-slate-200/70 py-8 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p>&copy; {year} Laravel Developer Portfolio. Built with Laravel expertise and modern web technologies.</p>
+                <p>&copy; {year} Laravel Developer. Built with modern web technologies.</p>
                 <div className="flex gap-4">
                     <a href="https://github.com/mlkmonu" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         GitHub
