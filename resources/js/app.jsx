@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AnimatePresence, motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import axios from 'axios';
 import '../css/app.css';
+
 
 const navigation = [
     { label: 'About', href: '#about' },
@@ -14,6 +16,10 @@ const navigation = [
 
 
 
+
+
+
+// EmailJS (BEST for React without backend)
 // ======================= UPDATED CONTENT =======================
 // https://portfollie.vercel.app/
 
@@ -42,27 +48,44 @@ const projects = [
     {
         title: 'Deepringer Membership Platform',
         description:
-            'Built a membership platform with Stripe subscriptions, reducing manual work by 80% and automating the entire onboarding and payment process.',
+            'Built a complete membership system with authentication, user roles, and Stripe subscription payments.',
+        result: 'Reduced manual work by 80% and automated user onboarding.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Stripe', 'JavaScript'],
         live: 'https://team20.in/deepringer',
-        source: '', // add GitHub if available
+        source: '',
     },
     {
         title: 'RSKF Donation Platform',
         description:
-            'Developed a donation system with cart and checkout, enabling seamless contributions and improving transaction management through a custom admin panel.',
+            'Developed a donation platform with cart and checkout system along with admin dashboard.',
+        result: 'Enabled smooth donation flow and better transaction management.',
         stack: ['Laravel', 'Bootstrap', 'JavaScript', 'MySQL'],
         live: 'https://team20.in/RSKFDonation/',
         source: '',
     },
+
     {
         title: 'HospiceTalk (QA & Testing)',
         description:
-            'Performed QA testing and UI validation, identifying bugs and improving overall usability and performance of the platform.',
+            'Performed UI testing, bug reporting, and usability improvements.',
+        result: 'Improved performance and user experience by fixing critical issues.',
         stack: ['Testing', 'UI QA'],
         live: 'https://hospicetalk.com/',
         source: '',
     },
+
+
+    {
+        title: 'Hotel Management System',
+        description:
+            'A full-stack hotel management platform where users can add hotel posts, and admin controls all listings. After 1 post, users must purchase a plan to continue posting. Includes complete payment system integration.',
+        result:
+            'Automated user posting limits with subscription-based access and secure payment flow.',
+        stack: ['Laravel', 'PHP', 'MySQL', 'Payment Gateway', 'JavaScript'],
+        live: 'https://github.com/mlkmonu/hotelmanegment.git',
+        source: 'https://github.com/mlkmonu/hotelmanegment.git',
+    }
+
 ];
 
 const experience = [
@@ -289,7 +312,7 @@ function Hero() {
                             <span className="h-3 w-3 rounded-full bg-amber-400" />
                             <span className="h-3 w-3 rounded-full bg-emerald-400" />
                         </div>
-                        <p className="text-xs font-medium uppercase tracking-[0.22em] text-slate-500 dark:text-slate-300">
+                        <p className="text-xs font-medium uppercase     tracking-[0.22em] text-slate-500 dark:text-slate-300">
                             Current Focus
                         </p>
                     </div>
@@ -510,44 +533,42 @@ function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (isSubmitting) {
-            return;
-        }
+        if (isSubmitting) return;
 
         setIsSubmitting(true);
         setSubmitStatus({ type: '', text: '' });
 
         try {
-            await axios.post(
-                import.meta.env.VITE_CONTACT_API_URL || 'http://127.0.0.1:8000/api/contact',
+            await emailjs.send(
+                'service_m0qhxkh',          // ✅ Service ID
+                'template_2d6v40o',         // ✅ Template ID
                 {
-                    name,
-                    email,
+                    from_name: name,
+                    from_email: email,
                     project_type: projectType,
-                    message,
+                    message: message,
                 },
-                {
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                },
+                '1tKSEyTlCVLVjkF_E'         // ✅ Public Key
             );
 
-            setSubmitStatus({ type: 'success', text: 'Thank you! Your message has been sent successfully. I’ll review it and respond shortly.' });
+            setSubmitStatus({
+                type: 'success',
+                text: 'Message sent successfully! I will reply soon.'
+            });
+
             setName('');
             setEmail('');
             setProjectType('');
             setMessage('');
+
         } catch (error) {
-            const apiMessage = error.response?.data?.message;
-            const validationErrors = error.response?.data?.errors;
-            const firstValidationError = validationErrors ? Object.values(validationErrors).flat()[0] : '';
+            console.log(error);
 
             setSubmitStatus({
                 type: 'error',
-                text: apiMessage || firstValidationError || 'Message send failed. Check Laravel API and try again.',
+                text: 'Failed to send message. Please try again.'
             });
+
         } finally {
             setIsSubmitting(false);
         }
