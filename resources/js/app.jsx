@@ -1,4 +1,3 @@
-
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -14,6 +13,7 @@ const navigation = [
 ];
 
 
+
 // ======================= UPDATED CONTENT =======================
 // https://portfollie.vercel.app/
 
@@ -26,42 +26,42 @@ const stats = [
 ];
 
 const skills = [
-    { name: 'Laravel', level: 'Intermediate', detail: 'MVC architecture, authentication, REST APIs, real-world apps' },
-    { name: 'PHP', level: 'Intermediate', detail: 'Core PHP, OOP, backend logic' },
-    { name: 'MySQL', level: 'Intermediate', detail: 'Database design, relationships, queries' },
-    { name: 'HTML5', level: 'Advanced', detail: 'Semantic structure, forms' },
-    { name: 'CSS3', level: 'Advanced', detail: 'Responsive design, layouts' },
-    { name: 'JavaScript', level: 'Intermediate', detail: 'DOM, AJAX, interactivity' },
-    { name: 'jQuery', level: 'Intermediate', detail: 'Event handling, AJAX' },
-    { name: 'WordPress', level: 'Intermediate', detail: 'Themes, Elementor' },
-    { name: 'API Integration', level: 'Intermediate', detail: 'REST APIs, third-party' },
-    { name: 'Payment Integration', level: 'Intermediate', detail: 'Stripe, Razorpay' },
+    { name: 'Laravel', level: 75, detail: 'MVC architecture, authentication, REST APIs, real-world apps' },
+    { name: 'PHP', level: 70, detail: 'Core PHP, OOP, backend logic' },
+    { name: 'MySQL', level: 70, detail: 'Database design, relationships, queries' },
+    { name: 'HTML5', level: 90, detail: 'Semantic structure, forms' },
+    { name: 'CSS3', level: 85, detail: 'Responsive design, layouts' },
+    { name: 'JavaScript', level: 70, detail: 'DOM, AJAX, interactivity' },
+    { name: 'jQuery', level: 65, detail: 'Event handling, AJAX' },
+    { name: 'WordPress', level: 70, detail: 'Themes, Elementor' },
+    { name: 'API Integration', level: 75, detail: 'REST APIs, third-party' },
+    { name: 'Payment Integration', level: 80, detail: 'Stripe, Razorpay' },
 ];
 
 const projects = [
     {
         title: 'Deepringer Membership Platform',
         description:
-            'Built a membership platform with Stripe subscriptions, secure authentication, and creator system. Automated onboarding and payment flow.',
+            'Built a membership platform with Stripe subscriptions, reducing manual work by 80% and automating the entire onboarding and payment process.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Stripe', 'JavaScript'],
         live: 'https://team20.in/deepringer',
-        source: 'Source available on request',
+        source: '', // add GitHub if available
     },
     {
         title: 'RSKF Donation Platform',
         description:
-            'Developed donation system with cart and checkout. Built admin panel for managing users and transactions efficiently.',
+            'Developed a donation system with cart and checkout, enabling seamless contributions and improving transaction management through a custom admin panel.',
         stack: ['Laravel', 'Bootstrap', 'JavaScript', 'MySQL'],
         live: 'https://team20.in/RSKFDonation/',
-        source: 'Source available on request',
+        source: '',
     },
     {
         title: 'HospiceTalk (QA & Testing)',
         description:
-            'Performed QA testing, UI validation, and bug reporting to improve usability and performance.',
+            'Performed QA testing and UI validation, identifying bugs and improving overall usability and performance of the platform.',
         stack: ['Testing', 'UI QA'],
         live: 'https://hospicetalk.com/',
-        source: '#',
+        source: '',
     },
 ];
 
@@ -214,7 +214,7 @@ function Hero() {
                     Laravel Developer | Full-Stack Portfolio
                 </div>
                 <h1 className="display-font ...">
-                    I build <span className="text-gradient">secure & scalable Laravel applications</span> with real-world features.
+                    I help businesses  <span className="text-gradient">build secure Laravel applications with payment systems,</span>dashboards, and real-world features.
                 </h1>
 
                 <p className="mt-6 ...">
@@ -308,6 +308,12 @@ function Hero() {
                             </motion.div>
                         ))}
                     </div>
+                    <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
+                        <p>✔ Fast delivery</p>
+                        <p>✔ Clean & scalable code</p>
+                        <p>✔ Real-world project experience</p>
+                        <p>✔ Payment integration expert</p>
+                    </div>
                 </div>
             </motion.div>
         </section>
@@ -375,7 +381,11 @@ function Skills() {
 
 function Projects() {
     return (
-        <Section id="projects" eyebrow="Projects" title="Showcase of Laravel applications, WordPress themes, and integrated solutions.">
+        <Section
+            id="projects"
+            eyebrow="Projects"
+            title="Real-world Laravel applications focused on solving business problems."
+        >
             <div className="grid gap-5 lg:grid-cols-2">
                 {projects.map((project, index) => (
                     <motion.article
@@ -386,6 +396,7 @@ function Projects() {
                         transition={{ duration: 0.5, delay: index * 0.06 }}
                         className="section-card group rounded-[1.75rem] p-6"
                     >
+                        {/* Header */}
                         <div className="flex items-start justify-between gap-4">
                             <div>
                                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
@@ -395,11 +406,18 @@ function Projects() {
                                     {project.title}
                                 </h3>
                             </div>
+
                             <div className="rounded-full border border-slate-300/80 px-3 py-1 text-xs font-medium text-slate-600 transition group-hover:border-brand-400 group-hover:text-brand-600 dark:border-slate-700 dark:text-slate-300 dark:group-hover:border-brand-400 dark:group-hover:text-brand-300">
                                 Case Study
                             </div>
                         </div>
-                        <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
+
+                        {/* Description */}
+                        <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                            {project.description}
+                        </p>
+
+                        {/* Tech Stack */}
                         <div className="mt-5 flex flex-wrap gap-2">
                             {project.stack.map((item) => (
                                 <span
@@ -410,19 +428,29 @@ function Projects() {
                                 </span>
                             ))}
                         </div>
-                        <div className="mt-6 flex gap-3">
+
+                        {/* Buttons */}
+                        <div className="mt-6 flex flex-wrap gap-3">
                             <a
                                 href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-600 dark:bg-white dark:text-slate-950 dark:hover:bg-brand-200"
                             >
                                 Live Demo
                             </a>
-                            <a
-                                href={project.source}
-                                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-300"
-                            >
-                                GitHub
-                            </a>
+
+                            {/* GitHub button only if available */}
+                            {project.source && project.source !== '#' && (
+                                <a
+                                    href={project.source}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-300"
+                                >
+                                    GitHub
+                                </a>
+                            )}
                         </div>
                     </motion.article>
                 ))}
@@ -587,6 +615,9 @@ function Contact() {
                     </button>
 
                 </form>
+                <p className="text-xs text-slate-500 mt-2">
+                    I usually respond within 24 hours.
+                </p>
             </div>
         </Section>
     );
