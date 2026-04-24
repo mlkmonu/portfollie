@@ -16,17 +16,25 @@ const navigation = [
 ];
 
 
+
 // EmailJS (BEST for React without backend)
 // ======================= UPDATED CONTENT =======================
 // https://portfollie.vercel.app/
 
-// ======================= UPDATED CONTENT =======================
+
+
+// ======================= UPDATED CONTENT  =======================
+
+
+
 
 const stats = [
     { value: '1+', label: 'Years of Laravel development experience' },
     { value: '5+', label: 'Real-world projects built & deployed' },
     { value: '100%', label: 'Focus on practical & scalable solutions' },
 ];
+
+
 
 const skills = [
     { name: 'Laravel', level: 75, detail: 'MVC architecture, authentication, REST APIs, real-world apps' },
@@ -41,59 +49,70 @@ const skills = [
     { name: 'Payment Integration', level: 80, detail: 'Stripe, Razorpay' },
 ];
 
+
+
+
 const projects = [
     {
         title: 'Deepringer Membership Platform',
         description:
-            'Built a subscription-based membership platform with secure authentication, role-based access, and Stripe integration for recurring payments.',
-        result: 'Reduced manual onboarding by 80% and automated subscription management.',
+            'Worked on a Laravel-based membership system with Stripe recurring payments. Implemented role-based access control, subscription lifecycle (active, expired, cancelled) and user management features.',
+        result:
+            'Reduced manual subscription handling and improved automation of user access flow.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Stripe', 'JavaScript'],
         live: 'https://team20.in/deepringer',
         source: '',
     },
+
     {
         title: 'RSKF Donation Platform',
         description:
-            'Developed a complete donation system with cart, checkout flow, and admin dashboard for managing transactions.',
-        result: 'Simplified donation process and improved transaction tracking.',
+            'Worked on a donation system with cart functionality, secure checkout flow, and admin dashboard for tracking donations and managing transactions.',
+        result:
+            'Improved donation tracking system and streamlined payment process for end users.',
         stack: ['Laravel', 'Bootstrap', 'JavaScript', 'MySQL'],
         live: 'https://team20.in/RSKFDonation/',
         source: '',
     },
+
     {
         title: 'Hotel Management System',
         description:
-            'Created a platform where users can post hotel listings with a subscription model after the first post, including full payment integration.',
+            'Built a hotel listing platform with subscription-based posting system. Implemented payment integration for premium listings and user posting restrictions after free usage.',
         result:
-            'Monetized platform with subscription system and automated user restrictions.',
+            'Added monetization system and automated control over listing access based on subscription.',
         stack: ['Laravel', 'PHP', 'MySQL', 'Payment Gateway', 'JavaScript'],
         live: 'https://github.com/mlkmonu/hotelmanegment.git',
         source: 'https://github.com/mlkmonu/hotelmanegment.git',
     },
+
     {
         title: 'HospiceTalk (QA & Testing)',
         description:
-            'Performed UI testing, bug reporting, and usability improvements for a live platform.',
-        result: 'Improved overall performance and user experience by fixing critical issues.',
-        stack: ['Testing', 'UI QA'],
+            'Performed manual QA testing, identified UI/UX issues, and provided improvement suggestions for a live production platform.',
+        result:
+            'Helped improve UI stability and reduced usability issues reported in production.',
+        stack: ['Manual Testing', 'UI QA'],
         live: 'https://hospicetalk.com/',
         source: '',
-    }
+    },
 ];
+
+
 
 const experience = [
     {
-        role: 'Freelance Laravel Developer',
-        company: 'Self-Employed',
-        period: '2023 - Present',
+        role: 'Laravel Developer',
+        company: 'Wartiz Technology',
+        period: '2025 - Present',
         summary:
-            'Working on real-world Laravel apps including membership systems and dashboards.',
+            'Worked on Laravel-based real-world projects including membership systems, payment integration, and admin dashboards.',
         points: [
-            'Built full-stack Laravel applications',
-            'Integrated Stripe & Razorpay payments',
-            'Developed REST APIs',
-            'Created admin dashboards',
-            'Handled database design & optimization',
+            'Built and maintained full-stack Laravel applications',
+            'Integrated Stripe & Razorpay payment gateways',
+            'Developed REST APIs and backend logic',
+            'Worked on database design and optimization',
+            'Collaborated with team for production-ready features',
         ],
     },
 ];
@@ -160,8 +179,11 @@ function Header({ theme, onToggleTheme }) {
         >
             <div className="container-shell section-card rounded-full px-4 py-3">
                 <div className="flex items-center justify-between gap-4">
-                    <a href="#hero" className="display-font text-sm font-bold uppercase tracking-[0.24em] text-slate-700 dark:text-slate-200">
-                        Laravel Dev
+                    <a
+                        href="#hero"
+                        className="text-lg font-semibold tracking-wide text-slate-800 dark:text-white hover:text-brand-500 transition"
+                    >
+                        Monu Kumar
                     </a>
 
                     <nav className="hidden items-center gap-6 md:flex">
@@ -172,7 +194,7 @@ function Header({ theme, onToggleTheme }) {
                                 className="text-sm font-medium text-slate-600 transition hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300"
                             >
                                 {item.label}
-                            </a>    
+                            </a>
                         ))}
                     </nav>
 
@@ -189,6 +211,7 @@ function Header({ theme, onToggleTheme }) {
         </motion.header>
     );
 }
+
 
 function Hero() {
     const [imageReady, setImageReady] = useState(true);
@@ -214,7 +237,7 @@ function Hero() {
                             <img
                                 src={profileImage}
                                 alt="Profile Photo"
-                                className="h-32 w-32 rounded-full border-4 border-white shadow-lg object-cover dark:border-slate-700"
+                                className="h-40 w-40 rounded-full border-4 border-white shadow-lg object-cover dark:border-slate-700"
                                 onError={() => setProfileImageReady(false)}
                             />
                         ) : (
@@ -226,13 +249,15 @@ function Hero() {
                     </div>
                 </motion.div>
 
-                <div className="mb-6 inline-flex rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-200">
-                    Laravel Developer | Full-Stack Portfolio
+                <div className="mb-6 inline-flex rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-200">
+                    Monu Kumar | Laravel Developer
                 </div>
+                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                    Open to Freelance • Available for Laravel Projects
+                </p>
                 <h1 className="display-font">
-                    I build <span className="text-gradient">subscription-based & payment-enabled Laravel applications</span> that help businesses automate operations and grow faster.
+                    I’m Monu Kumar and I build <span className="text-gradient">Laravel applications for real-world use cases like payments, subscriptions, and dashboards</span> that help businesses automate operations and grow faster.
                 </h1>
-
                 <p className="mt-6">
                     I specialize in building membership systems, admin dashboards, and secure payment integrations using Laravel.
 
@@ -672,7 +697,7 @@ function Footer({ year }) {
     return (
         <footer className="container-shell relative z-10 border-t border-slate-200/70 py-8 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p>&copy; {year} Laravel Developer. Built with modern web technologies.</p>
+                <p>&copy; {year} Monu Kumar. Built with Laravel & React.</p>
                 <div className="flex gap-4">
                     <a href="https://github.com/mlkmonu" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         GitHub
@@ -680,9 +705,19 @@ function Footer({ year }) {
                     <a href="https://linkedin.com/in/laraveldev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         LinkedIn
                     </a>
-                    <a href="mailto:hello@laraveldev.dev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
+                    <a href="mailto:hello@laraveldev.dev" classN ame="transition hover:text-brand-500 dark:hover:text-brand-300">
                         Email
                     </a>
+
+                    <a
+                        href="https://twitter.com/yourusername"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition hover:text-brand-500 dark:hover:text-brand-300"
+                    >
+                        Twitter
+                    </a>
+
                 </div>
             </div>
         </footer>
