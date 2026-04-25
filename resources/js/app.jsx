@@ -702,10 +702,18 @@ function Footer({ year }) {
                     <a href="https://github.com/mlkmonu" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/laraveldev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
-                        LinkedIn
-                    </a>
-                    <a 
+
+            <a 
+  href="https://www.linkedin.com/in/monu-kumar-a31b6982" 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="transition hover:text-brand-500 dark:hover:text-brand-300"
+>
+  LinkedIn
+</a>
+
+                    
+                                        <a 
   href="mailto:monumlk01@gmail.com" 
   className="transition hover:text-brand-500 dark:hover:text-brand-300"
 >
