@@ -705,19 +705,12 @@ function Footer({ year }) {
                     <a href="https://linkedin.com/in/laraveldev" className="transition hover:text-brand-500 dark:hover:text-brand-300">
                         LinkedIn
                     </a>
-                    <a href="mailto:hello@laraveldev.dev" classN ame="transition hover:text-brand-500 dark:hover:text-brand-300">
-                        Email
-                    </a>
-
-                    <a
-                        href="https://twitter.com/yourusername"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="transition hover:text-brand-500 dark:hover:text-brand-300"
-                    >
-                        Twitter
-                    </a>
-
+                    <a 
+  href="mailto:monumlk01@gmail.com" 
+  className="transition hover:text-brand-500 dark:hover:text-brand-300"
+>
+  Email
+</a>
                 </div>
             </div>
         </footer>
