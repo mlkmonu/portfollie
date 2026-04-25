@@ -200,14 +200,24 @@ function Header({ theme, onToggleTheme }) {
                         ))}
                     </nav>
 
-                    <button
-                        type="button"
-                        onClick={onToggleTheme}
-                        className="inline-flex items-center gap-2 rounded-full border border-slate-300/70 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-300"
-                    >
-                        <span className="h-2.5 w-2.5 rounded-full bg-brand-500 dark:bg-teal-300" />
-                        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                    </button>
+                   <button
+    type="button"
+    onClick={onToggleTheme}
+    className="inline-flex items-center justify-center rounded-full p-2 border border-slate-300/70 bg-white/70 hover:scale-105 transition dark:border-slate-700 dark:bg-slate-900/60"
+>
+    {theme === 'dark' ? (
+        // ☀️ Sun icon (light mode)
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+    ) : (
+        // 🌙 Moon icon (dark mode)
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-700 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 0111.21 3c0-.34.02-.67.05-1A7 7 0 1019 20.95c-.33.03-.66.05-1 .05a9 9 0 003-8.21z" />
+        </svg>
+    )}
+</button>
                 </div>
             </div>
         </motion.header>
