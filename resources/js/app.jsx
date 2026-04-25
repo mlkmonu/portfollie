@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import profileImg from '../assets/monumlk.jpg';
+import profileImg from "../../src/assets/monumlk.jpg";
 const profileImage = profileImg;
 // import { AnimatePresence, eachAxis, motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
